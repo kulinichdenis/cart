@@ -16,6 +16,7 @@ module.exports = {
       { test: /\.gif/, loader: "url?limit=10000&mimetype=image/gif" },
       { test: /\.jpg/, loader: "url?limit=10000&mimetype=image/jpg" },
       { test: /\.png/, loader: "url?limit=10000&mimetype=image/png" },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}
     ]
   }
 }
