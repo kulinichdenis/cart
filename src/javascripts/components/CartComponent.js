@@ -5,15 +5,14 @@ var CartProductComponent = require("./CartProductComponent");
 var CartComponent = React.createClass({
 
     render: function() {
-    var deleteItem = this.props.delete;
-    var up = this.props.onUpdate;
+
     var total = this.props.cart.reduce(function(s, product) {
       return s += product['price'] * product['quantity'];
     }, 0);
 
     var SelectCarts = this.props.cart.map(function (elem, index) {
-        return <CartProductComponent product = {elem} key={index} up={up} deleteItem = {deleteItem}/>
-    })
+        return <CartProductComponent product = {elem} key={index} up = {this.props.onUpdate} deleteItem = {this.props.delete}/>
+    }.bind(this))
 
     return (
       <div>

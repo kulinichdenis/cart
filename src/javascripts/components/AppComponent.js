@@ -34,7 +34,7 @@ var AppComponent = React.createClass({
         } else {
             //update
             var inst = this.props.store.get(ids);
-            inst.quantity += 1;
+            inst['quantity'] += 1;
             this.props.store.update(ids, inst); //update
         }
 
@@ -49,7 +49,7 @@ var AppComponent = React.createClass({
         state.forEach(function (element) {
             if (element['code'] === code) {
                 var inst = that.get(element['id'])
-                inst['quantity'] = value;
+                inst['quantity'] = parseInt(value, 10);
                 that.update(element['id'],inst)
             }
         })
@@ -69,7 +69,7 @@ var AppComponent = React.createClass({
                 return true;
             }
         })
-        console.log(state);
+
         this.setState({
             item: state
         });

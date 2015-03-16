@@ -2,7 +2,8 @@ var _ = require("underscore");
 var React = require('react');
 
 var ProductComponent = React.createClass({
-    userOnClick:function(event){
+    userOnClick:function(e){
+        e.preventDefault();
         this.props.on(this.props.product);
     },
     render: function () {

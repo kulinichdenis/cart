@@ -4,15 +4,18 @@ var _ = require("underscore");
 var CartProductComponent = React.createClass({
 
     handlerValue:function(e){
+        e.preventDefault();
         var target = e.target;
         var value = target.value || 0;
-        this.props.up(this.props.product.code, target.value);
+        this.props.up(this.props.product.code, value);
 
     },
 
     deleteItem:function(e){
+        e.preventDefault();
         this.props.deleteItem(this.props.product.code);
     },
+
     render: function () {
         var value = this.props.product.quantity;
         return(
